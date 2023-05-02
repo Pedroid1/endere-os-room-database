@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">enderecos-room-database</string>
+    <string name="app_name">Endereços</string>
+
+    <string name="concat_address">%s, %s</string>
+    <string name="concat_district">Bairro: %s</string>
+    <string name="address_complement">Complemento: %s</string>
+    <string name="contact">Contato: %s</string>
+    <string name="address">Endereço</string>
+    <string name="client">Cliente</string>
+    <string name="contato">Contato</string>
+    <string name="street">Rua/Avenida/Travessa</string>
+    <string name="number">Número</string>
+    <string name="district">Bairro</string>
+    <string name="complement">Complemento</string>
+    <string name="add">Adicionar</string>
+    <string name="att">Atualizar</string>
+    <string name="required_field">Campo obrigatório</string>
+    <string name="invalid_number">Número inválido</string>
 </resources>

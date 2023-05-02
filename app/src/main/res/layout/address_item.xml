@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="address"
+            type="com.example.enderecos_room_database.domain.model.Address" />
+
+        <variable
+            name="onEditListener"
+            type="com.example.enderecos_room_database.presentation.activity.OnEditAddress" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="17dp"
+        android:layout_marginVertical="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <com.example.enderecos_room_database.presentation.components.CustomTextView
+                android:id="@+id/txt_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@{address.client}"
+                app:layout_constraintEnd_toStartOf="@id/ic_edit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textPriority="primary"
+                app:textType="title1"
+                tools:text="Pedro" />
+
+            <ImageView
+                android:id="@+id/ic_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view) -> onEditListener.onEdit(address)}"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.example.enderecos_room_database.presentation.components.CustomTextView
+                android:id="@+id/txt_contact"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{@string/contact(address.contact)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_name"
+                tools:text="Contato: 74999637391" />
+
+            <com.example.enderecos_room_database.presentation.components.CustomTextView
+                android:id="@+id/txt_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{@string/concat_address(address.street, address.number)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_contact"
+                app:textType="title2"
+                tools:text="São João, 150" />
+
+            <com.example.enderecos_room_database.presentation.components.CustomTextView
+                android:id="@+id/txt_district"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{@string/concat_district(address.district)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_address"
+                app:textType="title2"
+                tools:text="Bairro: São José" />
+
+            <com.example.enderecos_room_database.presentation.components.CustomTextView
+                android:id="@+id/txt_complement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{@string/address_complement(address.complement)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_district"
+                tools:text="Complemento: Perto da praça do caxeiro" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
