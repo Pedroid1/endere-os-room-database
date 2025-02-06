@@ -8,7 +8,6 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import com.example.enderecos_room_database.R
 import com.google.android.material.R.attr.colorOnBackground
-import com.google.android.material.R.attr.colorOnSurfaceVariant
 import com.google.android.material.color.MaterialColors
 
 class CustomTextView(context: Context, attrs: AttributeSet) : AppCompatTextView(context, attrs) {
@@ -30,9 +29,6 @@ class CustomTextView(context: Context, attrs: AttributeSet) : AppCompatTextView(
             EnumTextViewPriority.SECONDARY -> {
                 //PATTERN COLOR
             }
-            EnumTextViewPriority.TERTIARY -> {
-                this.setTextColor(MaterialColors.getColor(this, colorOnSurfaceVariant))
-            }
         }
     }
 
@@ -43,55 +39,39 @@ class CustomTextView(context: Context, attrs: AttributeSet) : AppCompatTextView(
     private fun setTextType(type: EnumTextType) {
         when (type) {
             EnumTextType.TITLE1 -> {
-                val font = ResourcesCompat.getFont(this.context, R.font.poppins_semibold)
+                val font = ResourcesCompat.getFont(this.context, R.font.montserrat_semibold)
                 this.typeface = font
                 this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20f)
             }
             EnumTextType.TITLE2 -> {
-                val font = ResourcesCompat.getFont(this.context, R.font.poppins_semibold)
+                val font = ResourcesCompat.getFont(this.context, R.font.montserrat_semibold)
                 this.typeface = font
                 this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f)
             }
             EnumTextType.TITLE3 -> {
-                val font = ResourcesCompat.getFont(context, R.font.poppins_semibold)
+                val font = ResourcesCompat.getFont(context, R.font.montserrat_semibold)
                 this.typeface = font
                 this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f)
             }
             EnumTextType.SUBTITLE1 -> {
-                val font = ResourcesCompat.getFont(context, R.font.poppins_medium);
+                val font = ResourcesCompat.getFont(context, R.font.montserrat_medium);
                 this.typeface = font
                 this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f)
             }
             EnumTextType.SUBTITLE2 -> {
-                val font = ResourcesCompat.getFont(context, R.font.poppins_medium)
+                val font = ResourcesCompat.getFont(context, R.font.montserrat_medium)
                 this.typeface = font
                 this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 11f)
             }
-            EnumTextType.HEADER -> {
-                val font = ResourcesCompat.getFont(context, R.font.poppins_semibold);
-                this.typeface = font
-                this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f)
-            }
             EnumTextType.BODY1 -> {
-                val font = ResourcesCompat.getFont(context, R.font.poppins_regular)
+                val font = ResourcesCompat.getFont(context, R.font.montserrat_regular)
                 this.typeface = font
                 this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f)
             }
             EnumTextType.BODY2 -> {
-                val font = ResourcesCompat.getFont(context, R.font.poppins_regular)
+                val font = ResourcesCompat.getFont(context, R.font.montserrat_regular)
                 this.typeface = font
                 this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
-            }
-            EnumTextType.CAPTION -> {
-                val font = ResourcesCompat.getFont(context, R.font.poppins_semibold)
-                this.typeface = font
-                this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
-            }
-            EnumTextType.OVERLINE -> {
-                val font = ResourcesCompat.getFont(context, R.font.poppins_regular)
-                this.typeface = font
-                this.setTextSize(TypedValue.COMPLEX_UNIT_SP, 11f)
-                isAllCaps = true
             }
         }
     }
@@ -102,11 +82,8 @@ class CustomTextView(context: Context, attrs: AttributeSet) : AppCompatTextView(
         TITLE3,
         SUBTITLE1,
         SUBTITLE2,
-        HEADER,
         BODY1,
-        BODY2,
-        CAPTION,
-        OVERLINE;
+        BODY2;
 
         companion object {
             @JvmStatic
@@ -118,8 +95,7 @@ class CustomTextView(context: Context, attrs: AttributeSet) : AppCompatTextView(
 
     enum class EnumTextViewPriority {
         PRIMARY,
-        SECONDARY,
-        TERTIARY;
+        SECONDARY;
 
         companion object {
             @JvmStatic
